@@ -54,5 +54,16 @@ public class ClienteCtrl implements Serializable {
 		cliente = p;
 		return "form_cliente";
 	}
+		public String actionInserirFone() {
+		Fone fone = new Fone();
+		fone.setCliente(cliente);
+		cliente.getFones().add(fone);
+		return "form_cliente";
+	}
+
+	public void actionExcluirFone(Fone f) {
+		ClienteDAO.excluirFone(f);
+		cliente.getFones().remove(f);
+	}
 
 }
